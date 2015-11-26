@@ -4,7 +4,6 @@ feature 'reviewing' do
   before {Restaurant.create name: 'My Restaurant'}
 
   scenario 'allows users to leave a review using a form' do
-    sign_up
     visit '/restaurants'
     click_link 'Review My Restaurant'
     fill_in "Thoughts", with: "so so"
