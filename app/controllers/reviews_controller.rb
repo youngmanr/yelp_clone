@@ -6,19 +6,13 @@ class ReviewsController < ApplicationController
 
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @review = @restaurant.reviews.create(review_params)
+    @review = @restaurant.build_review review_params, current_user
     if @review.save
       redirect_to restaurants_path
     else
       flash[:notice] = @review.errors.first[1] #error from the review model
       redirect_to restaurants_path
     end
-  end
-
-  
-  def build_review(attributes = {}, user)
-    attributes[:user] ||= user
-    reviews.build(attributes)
   end
 
 
