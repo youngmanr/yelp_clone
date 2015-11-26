@@ -35,4 +35,11 @@ feature "User can sign in and out" do
       expect(page).not_to have_link('Sign up')
     end
   end
+  context "a user must be logged in to create restaurants" do
+    it "should sign in for creating restaurant" do
+      visit '/'
+      click_link 'Add a restaurant'
+      expect(page).to have_link('Sign in')
+    end
+  end
 end
