@@ -10,7 +10,7 @@ class Restaurant < ActiveRecord::Base
   	reviews.inject(0) {|memo, review| memo + review.rating} / reviews.length
   end
 
-  def build_review(attributes = {}, user)
+  def build_review(attributes = {}, user)pai
     attributes[:user] ||= user
     reviews.build(attributes)
   end
